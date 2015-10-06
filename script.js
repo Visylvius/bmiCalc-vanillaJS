@@ -1,6 +1,6 @@
 var heightForm = document.getElementById('height');
 var weightForm = document.getElementById('weight');
-var calculateButton = document.getElementById('calculate');
+var bmiForm = document.getElementById('bmi');
 var heightValue;
 var weightValue;
 
@@ -19,7 +19,8 @@ function getWeight(event) {
     alert(weightValue);
 	weightForm.reset();
 }
-function calculateBMI() {
+function calculateBMI(event) {
+    event.preventDefault();
     alert('hello');
 	var BMI = weightValue / (heightValue * heightValue) * 703;
     document.getElementById('bmiList').innerHTML += "<li>" + BMI + "</li>";
@@ -27,4 +28,4 @@ function calculateBMI() {
 }
 heightForm.addEventListener('submit', getHeight, false);
 weightForm.addEventListener('submit', getWeight, false);
-weightForm.addEventListener('submit', calculateBMI, false);
+bmiForm.addEventListener('submit', calculateBMI, false);
